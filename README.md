@@ -145,4 +145,4 @@ sns.pairplot(dt)
 
 
 # RESULT
-        <<INCLUDE YOUR RESULT HERE>>
+Thus the Exploratory Data Analysis process is performed successfully on the given data using python code.
