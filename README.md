@@ -85,7 +85,7 @@ dt
 ```
 ![2-10](https://github.com/Divya110205/EXNO2DS/assets/119404855/af221019-adaa-4f5f-85a6-3f4b13d0cb33)
 
-
+#### BIVARIATE ANALYSIS
 ```
 sns.catplot(x="Gender",col="Survived",kind="count",data=dt,height=5,aspect=.7)
 ```
