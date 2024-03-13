@@ -188,5 +188,7 @@ sns.heatmap(corr,annot=True)
 ```
 sns.pairplot(dt)
 ```
+![2-29](https://github.com/Divya110205/EXNO2DS/assets/119404855/ea677bb9-9f7e-4baf-9705-d78ad02385ce)
+
 # RESULT
 Thus the Exploratory Data Analysis process is performed successfully on the given data using python code.
