@@ -32,117 +32,161 @@ import seaborn as sns
 dt=pd.read_csv("/content/titanic_dataset.csv")
 dt
 ```
-![2-1](https://github.com/Divya110205/EXNO2DS/assets/119404855/d12e34b6-a208-46d2-9e02-2860002e8089)
+![2-1](https://github.com/Divya110205/EXNO2DS/assets/119404855/8e8b0dbb-c93f-46e5-aa11-d16ba5c0fe76)
 
 ```
 dt.info()
 ```
-![2-2](https://github.com/Divya110205/EXNO2DS/assets/119404855/729875bb-e3fc-4c91-89da-883bc2400d29)
+![2-2](https://github.com/Divya110205/EXNO2DS/assets/119404855/3d775523-53ab-46f8-a3d6-3f994bed9405)
 
 ```
 dt.shape
 ```
-![2-3](https://github.com/Divya110205/EXNO2DS/assets/119404855/a0eef082-ae2d-4d5c-ad46-419a4daf7e98)
+![2-3](https://github.com/Divya110205/EXNO2DS/assets/119404855/a0e9a787-5423-4e8e-9cc5-ecf821d45f12)
 
 ```
 dt.set_index("PassengerId",inplace=True)
 dt.describe()
 ```
-![2-4](https://github.com/Divya110205/EXNO2DS/assets/119404855/c8b82f77-4b64-41f4-b8c6-6da80df4791b)
-
-#### CATEGORICAL DATA ANALYSIS
-```
-dt.nunique()
-```
-![2-5](https://github.com/Divya110205/EXNO2DS/assets/119404855/24404bf7-7cbe-4dfe-934e-4df366660737)
-
-```
-dt["Survived"].value_counts()
-```
-![2-6](https://github.com/Divya110205/EXNO2DS/assets/119404855/018abaad-a788-4cf6-b2ae-a2ab28772793)
-
-```
-per=(dt["Survived"].value_counts()/dt.shape[0]*100).round(2)
-per
-```
-![2-7](https://github.com/Divya110205/EXNO2DS/assets/119404855/44a97d7b-081e-470b-b88a-130d20867e4d)
-
-#### UNIVARIATE ANALYSIS
-```
-sns.countplot(data=dt,x="Survived")
-```
-![2-8](https://github.com/Divya110205/EXNO2DS/assets/119404855/6923fca1-1bb8-426b-8913-bf5efc5f8870)
-
-```
-dt.Pclass.unique()
-```
-![2-9](https://github.com/Divya110205/EXNO2DS/assets/119404855/d506691d-69cd-4ec5-be17-d1e34caa37cc)
-
+![2-4](https://github.com/Divya110205/EXNO2DS/assets/119404855/911f7e2b-c34e-460f-837b-2da5a5ba3278)
 
 ```
 dt.rename(columns = {'Sex':'Gender'},inplace=True)
 dt
 ```
-![2-10](https://github.com/Divya110205/EXNO2DS/assets/119404855/af221019-adaa-4f5f-85a6-3f4b13d0cb33)
+![2-5](https://github.com/Divya110205/EXNO2DS/assets/119404855/3467b274-bf02-43a6-a098-916b09ddd2c0)
+
+#### CATEGORICAL DATA ANALYSIS
+```
+dt.nunique()
+```
+![2-6](https://github.com/Divya110205/EXNO2DS/assets/119404855/4d341f16-03b4-4f27-a207-b066e921245b)
+
+```
+dt["Pclass"].value_counts()
+```
+![2-7](https://github.com/Divya110205/EXNO2DS/assets/119404855/67f260b1-0dc7-4d86-996c-c82b460f429f)
+
+```
+per=(dt["Pclass"].value_counts()/dt.shape[0]*100).round(2)
+per
+```
+![2-8](https://github.com/Divya110205/EXNO2DS/assets/119404855/81258368-33d2-48af-98d7-ac11e6686126)
+
+#### UNIVARIATE ANALYSIS
+```
+sns.countplot(data=dt,x="Pclass")
+```
+![2-9](https://github.com/Divya110205/EXNO2DS/assets/119404855/ec9feda4-b9df-440f-b1c7-a14049098b57)
+
+```
+sns.countplot(data=dt,x="Gender")
+```
+![2-10](https://github.com/Divya110205/EXNO2DS/assets/119404855/a2ec38ab-2d82-433e-a49d-4cb2c99e178e)
+
+```
+sns.countplot(data=dt,x="Age")
+```
+![2-11](https://github.com/Divya110205/EXNO2DS/assets/119404855/fb4088e2-a9fc-4e02-814d-02b2a5835a6e)
+
+```
+sns.countplot(data=dt,x="SibSp")
+```
+![2-12](https://github.com/Divya110205/EXNO2DS/assets/119404855/1e0243fd-597d-4c45-a05a-c0d8aa1502cd)
+
+```
+sns.countplot(data=dt,x="Parch")
+```
+![2-13](https://github.com/Divya110205/EXNO2DS/assets/119404855/d3b47e89-bb3e-491e-b0d8-ae00b0979451)
+
+#### HISTOGRAM
+```
+plt.hist(dt['Age'], bins=20, color='green', edgecolor='black')
+plt.title('Distribution of Passenger Ages')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.grid(True)
+plt.show()
+```
+![2-14](https://github.com/Divya110205/EXNO2DS/assets/119404855/ba246585-a720-4fab-873b-73567ea5ef7c)
+
+```
+plt.hist(dt['Fare'], bins=20, color='red', edgecolor='black')
+plt.title('Distribution of Passenger Fares')
+plt.xlabel('Fare')
+plt.ylabel('Frequency')
+plt.grid(True)
+plt.show()
+```
+![2-15](https://github.com/Divya110205/EXNO2DS/assets/119404855/6130d22a-2b46-4af1-8883-cd342951060f)
+
+```
+dt.Survived.unique()
+```
+![2-16](https://github.com/Divya110205/EXNO2DS/assets/119404855/6d933d12-e631-4212-9bdc-a83a8eb3f5a5)
 
 #### BIVARIATE ANALYSIS
 ```
-sns.catplot(x="Gender",col="Survived",kind="count",data=dt,height=5,aspect=.7)
+sns.catplot(x="Pclass",col="Embarked",kind="count",data=dt,height=5,aspect=.7)
 ```
-![2-11](https://github.com/Divya110205/EXNO2DS/assets/119404855/59a84a4b-8b93-4896-9a7d-0b5046695f72)
-
-
-```
-sns.catplot(x='Survived',hue="Gender",data=dt,kind="count")
-```
-![2-12](https://github.com/Divya110205/EXNO2DS/assets/119404855/cac9226f-2cb4-4693-99ab-aa262cd28e3a)
-
+![2-17](https://github.com/Divya110205/EXNO2DS/assets/119404855/e73face2-2542-47f3-afa8-fab3daf9e5ea)
 
 ```
-dt.boxplot(column="Age",by="Survived")
+sns.catplot(x='Pclass',hue="SibSp",data=dt,kind="count")
 ```
-![2-13](https://github.com/Divya110205/EXNO2DS/assets/119404855/17ab0861-c128-47e7-a313-116bedd8e100)
-
-
-```
-sns.scatterplot(x=dt["Age"],y=dt["Fare"])
-```
-![2-14](https://github.com/Divya110205/EXNO2DS/assets/119404855/359b469f-9633-44f0-aa1b-d7474f573f2a)
-
+![2-18](https://github.com/Divya110205/EXNO2DS/assets/119404855/7f0364f3-15df-4af8-b011-744fa43f2e2e)
 
 ```
-sns.jointplot(x="Age",y="Fare",data=dt)
+dt.boxplot(column="Fare",by="Pclass")
 ```
-![2-15](https://github.com/Divya110205/EXNO2DS/assets/119404855/290d6166-e4f3-471b-8582-72600004084f)
+![2-19](https://github.com/Divya110205/EXNO2DS/assets/119404855/e5a06acd-2cdd-45df-b0d9-b428f7f97062)
 
+```
+dt.boxplot(column="Fare",by="Embarked")
+```
+![2-20](https://github.com/Divya110205/EXNO2DS/assets/119404855/7de02ea4-e263-4b52-b8cd-ba3e55e0a872)
+
+```
+sns.scatterplot(x=dt["SibSp"],y=dt["Parch"])
+```
+![2-21](https://github.com/Divya110205/EXNO2DS/assets/119404855/6b1a2a14-1239-480a-a125-f10225126718)
+
+```
+sns.scatterplot(x=dt["SibSp"],y=dt["Survived"])
+```
+![2-22](https://github.com/Divya110205/EXNO2DS/assets/119404855/d5a33481-773d-4c45-bfd0-072b608d5447)
+
+```
+sns.jointplot(x="Pclass",y="SibSp",data=dt)
+```
+![2-23](https://github.com/Divya110205/EXNO2DS/assets/119404855/ad905dcd-7dff-4012-9e9e-82dcda91476e)
+
+```
+sns.jointplot(x="Pclass",y="Parch",data=dt)
+```
+![2-24](https://github.com/Divya110205/EXNO2DS/assets/119404855/d7317586-48a1-42fe-8a76-6d77d408b099)
 
 #### MULTIVARIATE ANALYSIS
 ```
 fig,ax1=plt.subplots(figsize=(8,5))
-pt=sns.boxplot(ax=ax1,x='Pclass',y='Age',hue='Gender',data=dt)
+pt=sns.boxplot(ax=ax1,x='Age',y='Gender',hue='Survived',data=dt)
 ```
-![2-16](https://github.com/Divya110205/EXNO2DS/assets/119404855/cfad821e-1d27-4c6d-96da-a43c261076c6)
-
+![2-25](https://github.com/Divya110205/EXNO2DS/assets/119404855/48cbfb0e-ef2d-4b9d-941b-16a427b15f06)
 
 ```
 sns.catplot(data=dt,col="Survived",x="Gender",hue="Pclass",kind="count")
 ```
-![2-17](https://github.com/Divya110205/EXNO2DS/assets/119404855/633922ee-abf2-400f-bd54-1e6d0533467e)
-
+![2-26](https://github.com/Divya110205/EXNO2DS/assets/119404855/90f8a6ea-0c82-4e31-a55b-4029d819f3f5)
 
 #### CO-RELATION
 ```
 corr = dt.corr()
 sns.heatmap(corr,annot=True)
 ```
-![2-18](https://github.com/Divya110205/EXNO2DS/assets/119404855/b567f5df-36f7-4dd0-9948-248e116c1514)
+![2-28](https://github.com/Divya110205/EXNO2DS/assets/119404855/753556ae-60ef-447c-a059-d4afd4a8b67e)
 
 ```
 sns.pairplot(dt)
 ```
-![2-19](https://github.com/Divya110205/EXNO2DS/assets/119404855/fff650c4-8ab7-4bbd-b4d9-043659f1a7fe)
-
-
-
 # RESULT
 Thus the Exploratory Data Analysis process is performed successfully on the given data using python code.
